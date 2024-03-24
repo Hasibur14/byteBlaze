@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
 
     const [theme, setTheme] = useState('light');
-
     useEffect(() => {
         localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme')
@@ -24,13 +23,13 @@ const Nav = () => {
 
     const links = <>
         <li>
-            <NavLink to='/' className={({isActive}) => isActive ? 'text-primary font-bold' :'font-normal' }>Home</NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary font-bold border-b' : 'font-normal'}>Home</NavLink>
         </li>
         <li>
-            <NavLink to='/blogs' className={({isActive}) => isActive ? 'text-primary font-bold' : 'font-normal'}>Blogs</NavLink>
+            <NavLink to='/blogs' className={({ isActive }) => isActive ? 'text-primary font-bold' : 'font-normal'}>Blogs</NavLink>
         </li>
         <li>
-            <NavLink to='/bookmarks'  className={({isActive}) => isActive ? 'text-primary font-bold' :'font-normal' }>Bookmarks</NavLink>
+            <NavLink to='/bookmarks' className={({ isActive }) => isActive ? 'text-primary font-bold' : 'font-normal'}>Bookmarks</NavLink>
         </li>
     </>
 

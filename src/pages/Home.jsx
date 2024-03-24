@@ -1,9 +1,11 @@
-
+import wave from '../assets/react.svg';
+import Hero from "../components/Hero";
 
 const Home = () => {
     return (
-        <div>
-           <h3>Home Page</h3>
+        <div className="flex flex-col items-center justify-center">
+            <Hero></Hero>
+            <img src={wave} alt="" />
         </div>
     );
 };
