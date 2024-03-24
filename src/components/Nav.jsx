@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const Nav = () => {
 
     const [theme, setTheme] = useState('light');
-
-
 
     useEffect(() => {
         localStorage.setItem('theme', theme)
@@ -20,7 +19,20 @@ const Nav = () => {
         else {
             setTheme('light')
         }
-    }
+    };
+
+
+    const links = <>
+        <li>
+            <NavLink to='/' className={({isActive}) => isActive ? 'text-primary font-bold' :'font-normal' }>Home</NavLink>
+        </li>
+        <li>
+            <NavLink to='/blogs' className={({isActive}) => isActive ? 'text-primary font-bold' : 'font-normal'}>Blogs</NavLink>
+        </li>
+        <li>
+            <NavLink to='/bookmarks'  className={({isActive}) => isActive ? 'text-primary font-bold' :'font-normal' }>Bookmarks</NavLink>
+        </li>
+    </>
 
 
     return (
@@ -31,30 +43,18 @@ const Nav = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a>Home</a>
-                        </li>
-                        <li>
-                            <a>Blogs</a>
-                        </li>
-                        <li>
-                            <a>Bookmarks</a>
-                        </li>
+                        {
+                            links
+                        }
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl gap-0 text-secondary font-bold">Byte<span className="text-primary">Blaze</span></a>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-bold">
-                    <li>
-                        <a>Home</a>
-                    </li>
-                    <li>
-                        <a>Blogs</a>
-                    </li>
-                    <li>
-                        <a>Bookmarks</a>
-                    </li>
+                    {
+                        links
+                    }
                 </ul>
                 <label className="cursor-pointer grid place-items-center">
                     <input onChange={handleToggle} type="checkbox" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
