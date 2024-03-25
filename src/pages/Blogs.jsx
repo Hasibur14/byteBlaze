@@ -7,8 +7,6 @@ const Blogs = () => {
     const blogs = useLoaderData();
 
 
-
-
     return (
         <div>
             <div>

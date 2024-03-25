@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
     useEffect(() => {
         localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme')
